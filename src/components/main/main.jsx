@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Wrapper } from "./main.styled";
+import * as Component from "./main.styled";
 import logo from "../../assets/logo.svg";
 import mockups from "../../assets/image-mockups.png";
 import online from "../../assets/icon-online.svg";
@@ -11,11 +11,13 @@ import twitter from "../../assets/icon-twitter.svg";
 import facebook from "../../assets/icon-facebook.svg";
 import instagram from "../../assets/icon-instagram.svg";
 import pinterest from "../../assets/icon-pinterest.svg";
-
+import { MdOutlineCopyright } from "react-icons/md";
 import confetti from "../../assets/image-confetti.jpg";
 import plane from "../../assets/image-plane.jpg";
 import restaurant from "../../assets/image-restaurant.jpg";
 import currency from "../../assets/image-currency.jpg";
+
+import Button from "../button/button";
 
 import { useState } from "react";
 
@@ -23,54 +25,58 @@ const Main = ({ logout }) => {
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
-    setToggle((prev) => !prev);
+    setToggle(!toggle);
+    console.log(toggle);
   };
   return (
-    <Wrapper isToggle={toggle}>
-      <header>
+    <>
+      <Component.Header toggle={toggle}>
         <img src={logo} />
-        <div onClick={handleToggle} id="container-toggle">
-          <div id="toggle"></div>
+        <div onClick={handleToggle} className="header__toggle">
+          <div className="header__btn__toggle"></div>
         </div>
-       
-        <ul>
-          <li>home</li>
-          <li>about</li>
-          <li>contact</li>
-          <li>blog</li>
-          <li>careers</li>
+
+        <ul className="header__list">
+          <li className="header__li">home</li>
+          <li className="header__li">about</li>
+          <li className="header__li">contact</li>
+          <li className="header__li">blog</li>
+          <li className="header__li">careers</li>
         </ul>
 
-        <button>request invite</button>
-      </header>
-      <main>
-      <div id="masck"></div>
-        <section>
-          <div>
-            <h1>next generation digital banking</h1>
+        <Button children="request invite" />
+      </Component.Header>
+      <Component.Main toggle={toggle}>
+        <div className="main__mask" onClick={handleToggle}></div>
+        <section className="main__container__one">
+          <div className="main__title_one">
+            <h1>
+              Next generation <br /> digital banking
+            </h1>
             <p>
               Take your financial life online. Your Easybank account will be
-              one-stop-shop for speding, saving, budgeting,investing, and much
-              more.
+              one-stop-shop for speding, saving,
+              <br /> budgeting,investing, and much more.
             </p>
 
-            <button>request Invite</button>
+            <Button children="request invite" />
           </div>
-          <div className="mockup">
-            <img src={mockups} />
+          <div className="main__section__mockup">
+            <img src={mockups} className="main__img_phone" />
           </div>
         </section>
-        <section>
-          <div>
+
+        <section className="main__container__two">
+          <div className="main__title__two">
             <h2>Why choose Easybank ?</h2>
             <p>
               We leverage Open Banking toturn your bank account into your
-              financial hub. Control your finances like never before.
+              financial hub. <br /> Control your finances like never before.
             </p>
           </div>
 
-          <div className="cards-one">
-            <div>
+          <div className="main__cards">
+            <div className="main__container__two__cards">
               <img src={online} />
               <h3>Online Banking</h3>
               <p>
@@ -78,7 +84,7 @@ const Main = ({ logout }) => {
                 of your finances wherever you are in the world.
               </p>
             </div>
-            <div>
+            <div className="main__container__two__cards">
               <img src={budgeting} />
               <h3>Simple Budgeting</h3>
               <p>
@@ -86,7 +92,7 @@ const Main = ({ logout }) => {
                 notifications when you're close to hiting your limits.
               </p>
             </div>
-            <div>
+            <div className="main__container__two__cards">
               <img src={onBoarding} />
               <h3>Fast Onboarding</h3>
               <p>
@@ -94,7 +100,7 @@ const Main = ({ logout }) => {
                 start taking control of your finances right away.
               </p>
             </div>
-            <div>
+            <div className="main__container__two__cards">
               <img src={api} />
               <h3>Open API</h3>
               <p>
@@ -104,10 +110,11 @@ const Main = ({ logout }) => {
             </div>
           </div>
         </section>
-        <section className="cards-two">
+
+        <section className="main__container__three">
           <h3>Lastest Articles</h3>
-          <div className="cards">
-            <div>
+          <div className="main__cards">
+            <div className="main__container__three__cards">
               <img src={currency} />
               <small>By Claire Robinson</small>
               <h3>Receive money in any currency with no fees</h3>
@@ -116,7 +123,7 @@ const Main = ({ logout }) => {
                 why should you be foorced to only receive money in a single...
               </p>
             </div>
-            <div>
+            <div className="main__container__three__cards">
               <img src={restaurant} />
               <small>By Wilson Hutton</small>
               <h3>Treat yourself without worrying about money</h3>
@@ -125,7 +132,7 @@ const Main = ({ logout }) => {
                 speding and set realistic limits each month. That means you..
               </p>
             </div>
-            <div>
+            <div className="main__container__three__cards">
               <img src={plane} />
               <small>By Wilson Hutton</small>
               <h3>Take your Easybank card wherever you go</h3>
@@ -135,7 +142,7 @@ const Main = ({ logout }) => {
                 you...
               </p>
             </div>
-            <div>
+            <div className="main__container__three__cards">
               <img src={confetti} />
               <small>B Claire Robinson</small>
               <h3>Our invite-only Beta accounts are now live!</h3>
@@ -147,11 +154,11 @@ const Main = ({ logout }) => {
             </div>
           </div>
         </section>
-      </main>
-      <footer>
-        <div>
+      </Component.Main>
+      <Component.Footer toggle={toggle}>
+        <div className="footer__social__networks">
           <img src={logo} />
-          <span>
+          <span className="footer__networks">
             <img src={facebook} />
             <img src={youtube} />
             <img src={twitter} />
@@ -159,22 +166,24 @@ const Main = ({ logout }) => {
             <img src={instagram} />
           </span>
         </div>
-        <ul>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Blog</li>
+
+        <ul className="footer__list">
+          <li className="item1">About Us</li>
+          <li className="item2">Contact</li>
+          <li className="item3">Blog</li>
+          <li className="item4">Carees</li>
+          <li className="item5">Support</li>
+          <li className="item6">Privacy Policy</li>
         </ul>
-        <ul>
-          <li>Carees</li>
-          <li>Support</li>
-          <li>Privacy Policy</li>
-        </ul>
-        <div>
-          <button>Rquest Invite</button>
-          <small>Easybank. All Rights Reserved</small>
+        <div className="footer__rights__reserved">
+          <Button children="request invite" />
+          <small>
+            <MdOutlineCopyright />
+            Easybank. All Rights Reserved
+          </small>
         </div>
-      </footer>
-    </Wrapper>
+      </Component.Footer>
+    </>
   );
 };
 
