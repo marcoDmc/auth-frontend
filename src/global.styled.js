@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import background from "./assets/background.png";
 
 export const GlobalStyled = createGlobalStyle`
 
@@ -8,15 +7,7 @@ export const GlobalStyled = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   font-family: 'Public Sans', sans-serif;
-}
-
-:root {
-  --blue-800: #12192E;
-  --blue-700: #111C37;
-  --blue-600: #182341;
-  --blue-500: #1A2545;
-  --green-600: #00A86B;
-  --white-800: #FAEBD7;
+ 
 }
 
 

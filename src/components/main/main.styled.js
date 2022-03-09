@@ -4,12 +4,12 @@ import bg from "../../assets/bg-intro-desktop.svg";
 
 const Header = styled.header`
   width: 100%;
-  height: 66px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0, 0, 0, rgba(0, 0, 0, 100);
-
+  box-shadow: 0, 0, 10px, rgba(0, 0, 0, 400);
+  background: hsl(0, 0%, 100%);
   .header__list {
     width: 100%;
     max-width: 450px;
@@ -644,8 +644,9 @@ const Footer = styled.footer`
       display: grid;
       place-items: center;
       width: 100%;
-      gap: 20px;
+      gap: 30px;
       height: 100%;
+      margin: 0 auto;
 
       > img {
         filter: contrast(300%) brightness(2000%) saturate(200%) sepia(0%)
@@ -654,8 +655,9 @@ const Footer = styled.footer`
       .footer__networks {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 15px;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 400px;
       }
     }
 

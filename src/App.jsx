@@ -9,11 +9,12 @@ import { AppContext } from "./context/app.context";
 import Home from "./pages/home/Home";
 import Application from "./pages/private/aplication";
 import Signin from "./pages/home/Signin";
+import Spinner from "./components/spinner/spinner";
 
 function App() {
   const { auth, loading, isSignin } = useContext(AppContext);
   const Privates = ({ children }) => {
-    if (loading) return <div>loading...</div>;
+    if (loading) return <Spinner />;
     if (!auth) return <Navigate to="/" />;
 
     return children;
@@ -26,6 +27,7 @@ function App() {
         ) : (
           <Route path="/" element={<Home />} />
         )}
+
         <Route
           path="/app"
           element={
