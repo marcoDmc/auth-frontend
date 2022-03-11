@@ -1,118 +1,83 @@
-import { Wrapper } from "./signin.styled";
+import { Section } from "./signin.styled";
 
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { IoMdReturnLeft } from "react-icons/io";
-import { useContext, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.svg";
 import { AppContext } from "../../context/app.context";
-import { api } from "../../data/api";
+import { useContext, useEffect, useState } from "react";
+import { AiFillLock } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 
-const Signin = () => {
-  const [isChangeEmail, setIsChangeEmail] = useState("");
-  const [isChangePassword, setIsChangePassword] = useState("");
-  const [isLetterEmail, setIsLetterEmail] = useState(false);
-  const [isLetterPassword, setIsLetterPassword] = useState(false);
+const Login = (props) => {
+  const [isOpacity, setIsOpacity] = useState("initial");
+
   const [isValid, setIsValid] = useState("initial");
-
-  const { setUser, setIsSignin } = useContext(AppContext);
-  const navegate = useNavigate();
-  const refEmail = useRef();
+  const { setIsSignin } = useContext(AppContext);
 
   useEffect(() => {
-    if (!isChangeEmail) {
-      setIsLetterEmail(false);
-      refEmail.current.focus();
+    if (!props.email || !props.password) {
+      props.setIsDisabled(true);
+      setIsOpacity(".4");
     } else {
-      setIsLetterEmail(true);
+      props.setIsDisabled(false);
+      setIsOpacity("initial");
     }
-  }, [isChangeEmail]);
+  }, [props.email, props.password]);
 
   useEffect(() => {
-    if (!isChangePassword) {
-      setIsLetterPassword(false);
-    } else {
-      setIsLetterPassword(true);
-    }
-  }, [isChangePassword]);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!isChangeEmail.includes(".com") || !isChangeEmail.includes("@")) {
+    if (!props.email || !props.password) {
       setIsValid("red");
-      refEmail.current.focus();
     } else {
       setIsValid("initial");
     }
-    if (isChangeEmail && isChangePassword) {
-      try {
-        const response = await api.post("/signin", {
-          email: isChangeEmail,
-          password: isChangePassword,
-        });
-        const user = response.data.user;
-        const token = response.data.token;
-        console.log(token);
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("token", JSON.stringify(token));
+  }, [props.email, props.password]);
 
-        api.defaults.headers.Authorization = `Bearer ${token}`;
-        setUser(user);
-
-        navegate("/app");
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      return;
-    }
-
-    isChangeEmail("");
-    isChangePassword("");
-    refEmail.current.focus();
+  const handleSignin = () => {
+    setIsSignin((prev) => !prev);
   };
-
   return (
-    <Wrapper isLetterEmail={isLetterEmail} isLetterPassword={isLetterPassword}>
-      <div className="img-container"></div>
-      <div className="form-container">
-        <span>
-          <h1>sign in</h1>
-          <IoMdReturnLeft
-            className="IoMdReturnLeft"
-            onClick={() => setIsSignin((prev) => !prev)}
+    <Section
+      changePassword={props.password}
+      isOpacity={isOpacity}
+      isValid={isValid}
+      isDisabled={props.isDisabled}
+    >
+      <img src={logo} alt="easy bank" />
+      <h1>Welcome back</h1>
+      <p>Sign in to continue using tipe</p>
+      <form onSubmit={props.submit}>
+        <div id="input__form__one">
+          <MdEmail className="MdEmail" />
+          <input
+            type="email"
+            id="email"
+            maxLength="120"
+            ref={props.refEmail}
+            value={props.email}
+            onChange={(event) => props.setEmail(event.target.value)}
+            style={{ borderColor: props.isValid }}
           />
+        </div>
+        <div id="input__form__two">
+          <AiFillLock className="AiFillLock" />
+          <input
+            type="password"
+            id="password"
+            maxLength="24"
+            value={props.password}
+            onChange={(event) => props.setPassword(event.target.value)}
+          />
+        </div>
+        <a href="#">Forget your Password?</a>
+
+        <button disabled={props.isDisabled} style={{ opacity: isOpacity }}>
+          SIGN IN
+        </button>
+
+        <span>
+          Don't have an account ? <p onClick={handleSignin}>Register Here</p>
         </span>
-        <form onSubmit={handleSubmit}>
-          <span>
-            <label htmlFor="email">email</label>
-            <input
-              type="email"
-              id="email"
-              value={isChangeEmail}
-              onChange={(event) => setIsChangeEmail(event.target.value)}
-              ref={refEmail}
-              maxLength="120"
-              style={{ borderColor: isValid }}
-            />
-          </span>
-          <span>
-            <label htmlFor="password">password</label>
-            <input
-              type="password"
-              maxLength="24"
-              id="password"
-              value={isChangePassword}
-              onChange={(event) => setIsChangePassword(event.target.value)}
-            />
-          </span>
-          <button>
-            sign up <AiOutlineArrowRight />
-          </button>
-        </form>
-      </div>
-    </Wrapper>
+      </form>
+    </Section>
   );
 };
 
-export default Signin;
+export default Login;

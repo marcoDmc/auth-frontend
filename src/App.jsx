@@ -8,7 +8,7 @@ import {
 import { AppContext } from "./context/app.context";
 import Home from "./pages/home/Home";
 import Application from "./pages/private/aplication";
-import Signin from "./pages/home/Signin";
+import Signin from "./pages/home/Signup";
 import Spinner from "./components/spinner/spinner";
 
 function App() {

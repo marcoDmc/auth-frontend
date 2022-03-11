@@ -1,12 +1,13 @@
 import { useContext, useRef, useState } from "react";
 import { AppContext } from "../../context/app.context";
-import Login from "../../components/login/login";
+import Login from "../../components/signin/signin";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../data/api";
 
 const Home = () => {
   const [changeEmail, setChangeEmail] = useState("");
   const [changePassword, setChangePassword] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const [isValid, setIsValid] = useState("initial");
   const refEmail = useRef(null);
   const { auth, setUser } = useContext(AppContext);
@@ -14,6 +15,8 @@ const Home = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+   
 
     if (!changeEmail.includes(".com") || !changeEmail.includes("@")) {
       setIsValid("red");
@@ -25,7 +28,7 @@ const Home = () => {
 
     if (changeEmail && changePassword) {
       try {
-        const response = await api.post("/", {
+        const response = await api.post("/signin", {
           email: changeEmail,
           password: changePassword,
         });
@@ -63,6 +66,8 @@ const Home = () => {
       setEmail={setChangeEmail}
       refEmail={refEmail}
       isValid={isValid}
+      isDisabled={isDisabled}
+      setIsDisabled={setIsDisabled}
     />
   );
 };

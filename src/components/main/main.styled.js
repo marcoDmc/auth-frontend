@@ -10,6 +10,12 @@ const Header = styled.header`
   justify-content: space-between;
   box-shadow: 0, 0, 10px, rgba(0, 0, 0, 400);
   background: hsl(0, 0%, 100%);
+  img {
+    margin-left: 15px;
+  }
+  button {
+    margin-right: 15px;
+  }
   .header__list {
     width: 100%;
     max-width: 450px;
@@ -31,6 +37,7 @@ const Header = styled.header`
       justify-content: center;
 
       :hover {
+        transition: 0.3s ease;
         border: none;
         border-bottom: 2px solid;
         border-image: linear-gradient(
@@ -39,7 +46,6 @@ const Header = styled.header`
             hsl(192, 70%, 51%)
           )
           1;
-        transition: 0.3s ease;
       }
     }
   }
@@ -145,6 +151,7 @@ const Main = styled.main`
   display: grid;
   position: relative;
   margin-bottom: 50px;
+
   @media (min-width: 597px) {
     .main__container__one {
       display: flex;
@@ -255,6 +262,7 @@ const Main = styled.main`
       h3 {
         font-size: 1.5rem;
         font-weight: 400;
+        margin-left: 15px;
       }
 
       .main__cards {
@@ -342,6 +350,9 @@ const Main = styled.main`
       flex-direction: column-reverse;
       height: 100%;
       width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
 
       .main__title_one {
         height: auto;
@@ -487,6 +498,7 @@ const Main = styled.main`
         height: 100%;
         gap: 30px;
         margin-top: 100px;
+        margin-bottom: 30px;
         .main__container__three__cards {
           width: 100%;
           max-width: 300px;
@@ -552,8 +564,8 @@ const Footer = styled.footer`
     margin-right: 50px;
     margin-left: 15px;
     > img {
-      filter: contrast(300%) brightness(2000%) saturate(200%) sepia(0%)
-        invert(40%) grayscale(0%);
+      filter: contrast(100%) brightness(500%) saturate(100%) sepia(0%)
+        invert(10%) grayscale(0%);
     }
     .footer__networks {
       display: flex;
@@ -649,8 +661,7 @@ const Footer = styled.footer`
       margin: 0 auto;
 
       > img {
-        filter: contrast(300%) brightness(2000%) saturate(200%) sepia(0%)
-          invert(40%) grayscale(0%);
+        fill: aqua;
       }
       .footer__networks {
         display: flex;
@@ -658,6 +669,13 @@ const Footer = styled.footer`
         justify-content: space-around;
         width: 100%;
         max-width: 400px;
+
+        img {
+          :hover {
+            transition: 0.4s ease;
+            opacity: 0.8;
+          }
+        }
       }
     }
 
@@ -665,13 +683,13 @@ const Footer = styled.footer`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       width: 100%;
       height: 100%;
       gap: 20px;
       margin-bottom: 10px;
       li {
-        width: 100%;
+        width: 50%;
         text-align: center;
         color: hsl(220, 16%, 96%);
       }

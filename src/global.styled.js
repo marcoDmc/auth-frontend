@@ -17,6 +17,7 @@ export const GlobalStyled = createGlobalStyle`
   display:flex;
   flex-direction:column;
   align-items:center;
+  background: hsl(233, 26%, 24%);
   justify-content: space-between;
   }
 

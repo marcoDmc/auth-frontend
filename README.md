@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# auth frontend 🔐
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+repository created to practice user authentication
 
-## Available Scripts
 
-In the project directory, you can run:
+## technologies used 
 
-### `npm start`
+✨✨✨✨✨✨✨✨✨✨✨
+> react | node | css | html | axios | react-icons
+✨✨✨✨✨✨✨✨✨✨✨
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+test on your machine
 
-### `npm test`
+* first, install the dependencies
+> npm i  
+#### or 
+> yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* added env file
+> Create a __.env file__ at the __root__ of the project, right after creating a variable __named according to the image below__, and insert the URL __http://localhost:80__ into the variable
 
-### `npm run build`
+![](./src//assets/env.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* final step
+> finally, in your terminal run the yarn start command
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## some demo images of the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Entry form for users who already have a registration
 
-### `npm run eject`
+![](./src//assets/signin.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> form for creating new users
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](./src/assets/signup.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> desktop version main page header
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](./src/assets/desktop-header-active.png)
 
-## Learn More
+> main page footer desktop version
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](./src/assets/desktop-footer.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> main page desktop version
 
-### Code Splitting
+![](./src/assets/desktop-header.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> desktop cards version
 
-### Analyzing the Bundle Size
+![](./src/assets/desktop-cards.png)
+![](./src/assets/desktop-cards2.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### mobile parts
 
-### Making a Progressive Web App
+> mobile version header
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![](./src/assets/mobile-header.png)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+> mobile version footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![](./src/assets/mobile-footer.png)
 
-### `npm run build` fails to minify
+> mobile version cards
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![](./src/assets/mobile-cards.png)
+
+![](./src/assets/mobile-cards2.png)
+
+> mobile version menu toggle
+
+![](./src/assets/mobile-toggle.png)
+
+> mobile version button
+
+![](./src/assets/mobile-btn.png)
+
+
+__project in development__ ⏳
+ 
+> 🚨 note: accepting feedback, corrections, improvements, tips and the like, I'm a newbie and nothing better than having feedbacks from more experienced people to become a high-level professional
+
+
