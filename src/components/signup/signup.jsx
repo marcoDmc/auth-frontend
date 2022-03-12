@@ -12,7 +12,6 @@ const Signin = () => {
   const [changeEmail, setChangeEmail] = useState("");
   const [changePassword, setChangePassword] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  const [setIsValid] = useState("initial");
   const refEmail = useRef(null);
   const { setUser, setIsSignin } = useContext(AppContext);
   const navegate = useNavigate();
@@ -21,11 +20,8 @@ const Signin = () => {
     event.preventDefault();
 
     if (!changeEmail.includes(".com") || !changeEmail.includes("@")) {
-      setIsValid("red");
       refEmail.current.focus();
       return;
-    } else {
-      setIsValid("initial");
     }
 
     if (changeEmail && changePassword) {
@@ -103,8 +99,7 @@ const Signin = () => {
         </button>
       </form>
       <small>
-        already have an account ?
-        <span onClick={handleSignin}>sign in</span>
+        already have an account ?<span onClick={handleSignin}>sign in</span>
       </small>
     </Wrapper>
   );

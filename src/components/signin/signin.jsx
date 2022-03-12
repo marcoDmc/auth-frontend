@@ -9,7 +9,7 @@ import { MdEmail } from "react-icons/md";
 const Login = (props) => {
   const [isOpacity, setIsOpacity] = useState("initial");
 
-  const [isValid, setIsValid] = useState("initial");
+
   const { setIsSignin } = useContext(AppContext);
 
   useEffect(() => {
@@ -22,13 +22,7 @@ const Login = (props) => {
     }
   }, [props.email, props.password]);
 
-  useEffect(() => {
-    if (!props.email || !props.password) {
-      setIsValid("red");
-    } else {
-      setIsValid("initial");
-    }
-  }, [props.email, props.password]);
+ 
 
   const handleSignin = () => {
     setIsSignin((prev) => !prev);
@@ -37,7 +31,6 @@ const Login = (props) => {
     <Section
       changePassword={props.password}
       isOpacity={isOpacity}
-      isValid={isValid}
       isDisabled={props.isDisabled}
     >
       <img src={logo} alt="easy bank" />

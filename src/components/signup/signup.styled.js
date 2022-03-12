@@ -28,7 +28,7 @@ export const Wrapper = styled.section`
     font-size: clamp(2rem, 2.1rem, 2rem);
   }
 
-  small{
+  small {
     color: hsl(136, 65%, 51%);
     font-size: 1rem;
     margin-bottom: 10px;
@@ -69,7 +69,7 @@ export const Wrapper = styled.section`
             to right,
             hsl(136, 65%, 51%),
             hsl(192, 70%, 51%)
-          )
+          ),
           1;
         background: transparent;
         color: hsl(192, 70%, 51%);
