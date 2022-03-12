@@ -7,7 +7,7 @@ repository created to practice user authentication
 
 ✨✨✨✨✨✨✨✨✨✨✨
 > react | node | css | html | axios | react-icons
-✨✨✨✨✨✨✨✨✨✨✨
+
 
 
 test on your machine
