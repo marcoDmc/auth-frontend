@@ -22,6 +22,10 @@ test on your machine
 
 ![](./src//assets/env.png)
 
+* clone the auth-backend repository
+
+[link repo](https://github.com/marcosDmc/auth-backend.git)
+
 * final step
 > finally, in your terminal run the yarn start command
 
