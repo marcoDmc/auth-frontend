@@ -2,6 +2,7 @@ import styled from "styled-components";
 import bgMobile from "../../assets/bg-intro-mobile.svg";
 import bg from "../../assets/bg-intro-desktop.svg";
 
+
 const Header = styled.header`
   width: 100%;
   height: 70px;
@@ -660,22 +661,12 @@ const Footer = styled.footer`
       height: 100%;
       margin: 0 auto;
 
-      > img {
-        fill: aqua;
-      }
       .footer__networks {
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 100%;
         max-width: 400px;
-
-        img {
-          :hover {
-            transition: 0.4s ease;
-            opacity: 0.8;
-          }
-        }
       }
     }
 
